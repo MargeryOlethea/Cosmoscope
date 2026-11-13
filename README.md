@@ -52,8 +52,6 @@ npm run lint
 npm run build
 ```
 
-GitHub Actions runs both checks for pull requests and pushes to `main`.
-
 ## Project status
 
 I built Cosmoscope on my own. It is read-only, and availability depends on third-party Cosmos and market-data providers, which may enforce rate limits or change their public endpoints.
