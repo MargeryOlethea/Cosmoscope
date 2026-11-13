@@ -7,8 +7,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "proxy": " https://cosmoshub.api.kjnodes.com"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@cosmjs/crypto": "^0.32.3",

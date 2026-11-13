@@ -13,8 +13,10 @@ export const fetchDataCH = async (endpoint: string) => {
     );
 
     const data = await response.json();
-    if (data.error) {
-      throw new Error(data.error.message);
+    if (!response.ok || data.error) {
+      throw new Error(
+        data.error?.message || `Cosmos API request failed (${response.status})`,
+      );
     }
 
     return data;
@@ -34,8 +36,10 @@ export const fetchDataCG = async (endpoint: string) => {
     );
 
     const data = await response.json();
-    if (data.error) {
-      throw new Error(data.error.message);
+    if (!response.ok || data.error) {
+      throw new Error(
+        data.error?.message || `CoinGecko request failed (${response.status})`,
+      );
     }
 
     return data;
