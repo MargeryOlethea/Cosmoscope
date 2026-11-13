@@ -1,15 +1,9 @@
 // FETCH DATA FROM COSMOS HUB API
 export const fetchDataCH = async (endpoint: string) => {
   try {
-    // const response = await fetch(
-    //   `https://cosmoshub.api.kjnodes.com/cosmos/${endpoint}`,
-    // );
-
-    const apiKey = import.meta.env.VITE_ALL_THAT_NODE_API_KEY;
-
+    // cosmos.directory proxies public Cosmos Hub REST nodes, so no API key is needed.
     const response = await fetch(
-      `https://cosmos-mainnet-archive.allthatnode.com:1317/${endpoint}`,
-      { headers: { "x-allthatnode-api-key": apiKey } },
+      `https://rest.cosmos.directory/cosmoshub/${endpoint}`,
     );
 
     const data = await response.json();
