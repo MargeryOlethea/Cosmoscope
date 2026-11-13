@@ -1,36 +1,59 @@
-# Cosmoscope 
+# Cosmoscope
 
-## Description
+A responsive Cosmos Hub explorer for following network activity without leaving the browser.
 
-This project is a frontend application for a blockchain explorer focused on the Cosmos Network. It allows users to view blocks, transactions, validators, and proposals.
-
-access the cosmoscope here: [**https://cosmoscope.vercel.app**](https://cosmoscope.vercel.app)
+**Live demo:** [cosmoscope.vercel.app](https://cosmoscope.vercel.app)
 
 ## Features
 
-- **Track ATOM Price:** View the current price of ATOM and its historical price graph.
-- **Explore Blocks and Transactions:** Seamlessly navigate and analyze the latest blocks and transactions occurring on the Cosmos Network. Including the ability to search for specific transactions or blocks.
-- **Validator & Proposal Insights:** Gain valuable insights into validators and proposals.
-- **Responsive Design:** Enjoy a user-friendly experience across various devices, with an interface that adapts to your screen size.
+- Current ATOM market information and historical price chart
+- Latest blocks and transactions
+- Search by block height or transaction hash
+- Block and transaction detail pages
+- Validator and governance proposal views
+- Responsive layouts for desktop and mobile
 
-## Technologies Used
+## Technical highlights
 
-- [React](https://react.dev/): JavaScript library for building user interfaces
-- [TypeScript](https://www.typescriptlang.org/): Superset of JavaScript for static typing
-- [Cosmjs](https://github.com/cosmos/cosmjs): Library for interacting with Cosmos SDK-based blockchains 
-- [Tremor/react](https://github.com/tremorlabs/tremor): Graph library for creating interactive visualizations
+Cosmoscope is a React and TypeScript single-page application built with Vite. It reads Cosmos Hub data from a REST provider, obtains market data from CoinGecko, renders charts with Tremor, and uses React Router for explorer-style navigation.
 
-## Installation
+Search values with 64 characters are treated as transaction hashes; other non-empty values are treated as block heights. API helpers centralize provider authentication and surface unsuccessful HTTP responses to the page-level error handling.
 
-1. Clone the repository: `git clone https://github.com/MargeryOlethea/Cosmoscope.git`
-2. Navigate to the project directory: `cd cosmoscope`
-3. Navigate to the front-end folder: `cd front-end`
-4. Install dependencies: `npm install` (or yarn install if using Yarn)
+## Run locally
 
-## Usage
+Requirements:
 
-1. Start the development server: `npm run dev` 
-2. The application will be accessible at `http://localhost:5173` (default port, might vary)
+- Node.js 20+
+- npm
+- An All That Node API key
+- A CoinGecko demo API key
 
+```sh
+git clone https://github.com/MargeryOlethea/Cosmoscope.git
+cd Cosmoscope/front-end
+cp .env.example .env.local
+npm ci
+npm run dev
+```
 
+Set these values in `.env.local`:
 
+```dotenv
+VITE_ALL_THAT_NODE_API_KEY=your_all_that_node_api_key
+VITE_COIN_GECKO_API_KEY=your_coin_gecko_demo_api_key
+```
+
+Open [http://localhost:5173](http://localhost:5173).
+
+## Quality checks
+
+```sh
+npm run lint
+npm run build
+```
+
+GitHub Actions runs both checks for pull requests and pushes to `main`.
+
+## Project status
+
+This is a read-only portfolio explorer. Availability depends on third-party Cosmos and market-data providers, which may enforce rate limits or change their public endpoints.
