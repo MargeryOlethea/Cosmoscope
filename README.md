@@ -15,9 +15,9 @@ A responsive Cosmos Hub explorer for following network activity without leaving 
 
 ## Technical highlights
 
-Cosmoscope is a React and TypeScript single-page application built with Vite. It reads Cosmos Hub data from a REST provider, obtains market data from CoinGecko, renders charts with Tremor, and uses React Router for explorer-style navigation.
+Cosmoscope is a React and TypeScript single-page application built with Vite. It reads Cosmos Hub data from the public cosmos.directory REST endpoint (no API key), obtains market data from CoinGecko, renders charts with Tremor, and uses React Router for explorer-style navigation.
 
-Search values with 64 characters are treated as transaction hashes; other non-empty values are treated as block heights. API helpers centralize provider authentication and surface unsuccessful HTTP responses to the page-level error handling.
+Search values with 64 characters are treated as transaction hashes; other non-empty values are treated as block heights. API helpers centralize the provider URL and surface unsuccessful HTTP responses to the page-level error handling.
 
 ## Run locally
 
@@ -25,7 +25,6 @@ Requirements:
 
 - Node.js 20+
 - npm
-- An All That Node API key
 - A CoinGecko demo API key
 
 ```sh
@@ -39,7 +38,6 @@ npm run dev
 Set these values in `.env.local`:
 
 ```dotenv
-VITE_ALL_THAT_NODE_API_KEY=your_all_that_node_api_key
 VITE_COIN_GECKO_API_KEY=your_coin_gecko_demo_api_key
 ```
 
